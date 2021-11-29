@@ -1,6 +1,8 @@
 /node_modules
 /target
 /public/js
+/.lsp/
+/.clj-kondo/
 .shadow-cljs
 .nrepl-port
 yarn.lock
