@@ -22,3 +22,9 @@
             Math/floor
             int
             (#(str % " " (:name unit) (when (> % 1) "s") " ago")))))))
+
+(defn find-index
+  "Returns the index of the first element in the vector that satisfies the
+  provided predicate function. Otherwise returns nil."
+  [pred coll]
+   (first (keep-indexed #(when (pred %2) %1) coll)))

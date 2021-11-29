@@ -7,6 +7,7 @@
             ;; -- nav --
             [app.nav.views.nav :refer [nav]]
             [app.nav.events]
+            [app.nav.subs]
 
             [app.theme :refer [theme]]
             ["@mui/material/styles" :refer [ThemeProvider createTheme]]))
