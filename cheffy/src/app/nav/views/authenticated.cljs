@@ -1,5 +1,6 @@
 (ns app.nav.views.authenticated
-  (:require [app.components.mui :refer [box tabs tab]]))
+  (:require [app.components.mui :refer [box tabs tab]]
+            [re-frame.core :as rf]))
 
 (defn authenticated
   []
@@ -22,9 +23,11 @@
                       :href "#chef"}
                      {:id :profile
                       :name "Profile"
-                      :href "#profile"}]]
+                      :href "#profile"}]
+          select-tab #(rf/dispatch [:set-active-nav %])]
       (for [{:keys [id name href]} nav-items]
         [tab {:component "a"
               :href href
               :key id
-              :label name}]))]])
+              :label name
+              :on-click #(select-tab id)}]))]])
