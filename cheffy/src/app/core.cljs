@@ -10,6 +10,8 @@
 
             ;; -- page contents --
             [app.auth.views.profile :refer [profile]]
+            [app.auth.views.sign-up :refer [sign-up]]
+            [app.auth.views.log-in :refer [log-in]]
             [app.become-a-chef.views.become-a-chef :refer [become-a-chef]]
             [app.inbox.views.inboxes :refer [inboxes]]
             [app.recipes.views.recipes :refer [recipes]]
@@ -22,6 +24,8 @@
   [page-name]
   (case page-name
     :profile [profile]
+    :sign-up [sign-up]
+    :log-in [log-in]
     :chef [become-a-chef]
     :inbox [inboxes]
     :recipes [recipes]
