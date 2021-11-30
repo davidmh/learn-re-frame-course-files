@@ -35,7 +35,7 @@
 
 (defn nav
   []
-  (let [user true
+  (let [user false
         nav-items (if user authenticated public)
         active-nav @(rf/subscribe [:active-nav])
         selected-nav-index (or (find-index (fn [{:keys [id]}]
