@@ -1,6 +1,7 @@
 (ns app.auth.events
   (:require
-   [re-frame.core :refer [after reg-event-db reg-event-fx]]))
+   [re-frame.core :refer [after reg-event-db reg-event-fx reg-cofx]]
+   [cljs.reader :refer [read-string]]))
 
 (def cheffy-user-key "cheffy-user")
 
@@ -14,11 +15,11 @@
 (def set-user-interceptors [(after set-user-ls!)])
 (def remove-user-interceptors [(after remove-user-ls!)])
 
-(reg-event-db
-  :load-user-ls!
-  (fn [db _]
-    (let [auth (js->clj (.getItem js/localStorage cheffy-user-key))]
-      (assoc-in db [:auth] auth))))
+(reg-cofx
+  :local-store-user
+  (fn [cofx _]
+    (assoc cofx :local-store-user (read-string
+                                    (.getItem js/localStorage cheffy-user-key)))))
 
 (reg-event-fx
   :sign-up
