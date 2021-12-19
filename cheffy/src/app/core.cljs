@@ -3,6 +3,8 @@
             [re-frame.core :as rf]
 
             [app.db]
+            [app.router :as router]
+
             ;; -- nav --
             [app.nav.views.nav :refer [nav]]
             [app.nav.events]
@@ -51,5 +53,6 @@
 
 (defn ^:export init
   []
+  (router/start!)
   (rf/dispatch-sync [:initialize-db])
   (start))

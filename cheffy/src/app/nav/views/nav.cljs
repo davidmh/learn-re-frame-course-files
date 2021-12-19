@@ -1,37 +1,38 @@
 (ns app.nav.views.nav
   (:require [re-frame.core :as rf]
             [app.components.mui :refer [tabs tab box]]
-            [app.helpers :refer [find-index]]))
+            [app.helpers :refer [find-index]]
+            [app.router :as router]))
 
 (def authenticated [{:id :saved
                      :name "Saved"
-                     :href "#saved"}
+                     :href :saved}
                     {:id :recipes
                      :name "Recipes"
-                     :href "#recipes"}
-                    {:id :inbox
+                     :href :recipes}
+                    {:id :inboxes
                      :name "Inbox"
-                     :href "#inbox"}
+                     :href :inboxes}
                     {:id :chef
                      :name "Chef"
-                     :href "#chef"}
+                     :href :become-a-chef}
                     {:id :profile
                      :name "Profile"
-                     :href "#profile"}])
+                     :href :profile}])
 
 (def public [
              {:id :recipes
               :name "Recipes"
-              :href "#recipes"}
+              :href :recipes}
              {:id :chef
               :name "Chef"
-              :href "#chef"}
+              :href :chef}
              {:id :sign-up
               :name "Sign up"
-              :href "#sign-up"}
+              :href :sign-up}
              {:id :log-in
               :name "Log in"
-              :href "#log-in"}])
+              :href :log-in}])
 
 (defn nav
   []
@@ -50,7 +51,7 @@
      [tabs {:aria-label "menu" :value selected-nav-index}
       (for [{:keys [id name href]} nav-items]
         [tab {:component "a"
-              :href href
+              :href (router/path-for href)
               :key id
               :label name
               :on-click #(select-tab id)}])]]))
