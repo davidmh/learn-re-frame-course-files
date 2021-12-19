@@ -1,7 +1,8 @@
 (ns app.router
   (:require
    [bidi.bidi :as bidi]
-   [pushy.core :as pushy]))
+   [pushy.core :as pushy]
+   [re-frame.core :as rf]))
 
 (def routes ["/" {"" :recipes
                   "become-a-chef" :become-a-chef
@@ -13,11 +14,16 @@
                   "profile" :profile
                   "sign-up" :sign-up
                   "log-in" :log-in}])
+(def history
+  (let [dispatch #(rf/dispatch [:route-changed %])
+        match #(bidi/match-route routes %)]
+  (pushy/pushy dispatch match)))
 
 (defn start! []
-  (let [dispatch #(js/console.log %)
-        match #(bidi/match-route routes %)]
-  (pushy/start! (pushy/pushy dispatch match))))
+  (pushy/start! history))
 
 (defn path-for [route]
   (bidi/path-for routes route))
+
+(defn set-token! [token]
+  (pushy/set-token! history token))
