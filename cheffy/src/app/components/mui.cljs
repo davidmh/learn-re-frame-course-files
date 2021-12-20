@@ -3,8 +3,11 @@
             ["@mui/material/Box" :default MuiBox]
             ["@mui/material/Button" :default MuiButton]
             ["@mui/material/Container" :default MuiContainer]
+            ["@mui/material/Dialog" :default MuiDialog]
+            ["@mui/material/DialogTitle" :default MuiDialogTitle]
             ["@mui/material/Grid" :default MuiGrid]
             ["@mui/material/FormGroup" :default MuiFormGroup]
+            ["@mui/material/Modal" :default MuiModal]
             ["@mui/material/Paper" :default MuiPaper]
             ["@mui/material/TextField" :default MuiTextField]
             ["@mui/material/Tab" :default MuiTab]
@@ -15,7 +18,10 @@
 (def button (r/adapt-react-class MuiButton))
 (def box (r/adapt-react-class MuiBox))
 (def container (r/adapt-react-class MuiContainer))
+(def dialog (r/adapt-react-class MuiDialog))
+(def dialog-title (r/adapt-react-class MuiDialogTitle))
 (def form-group (r/adapt-react-class MuiFormGroup))
+(def modal (r/adapt-react-class MuiModal))
 (def paper (r/adapt-react-class MuiPaper))
 (def grid (r/adapt-react-class MuiGrid))
 (def tab (r/adapt-react-class MuiTab))

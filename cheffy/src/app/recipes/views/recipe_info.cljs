@@ -7,10 +7,10 @@
 
 (defn recipe-info []
   (let [{:keys [id cook saved-count prep-time]} @(rf/subscribe [:recipe])
-        {:keys [uid saved]} @(rf/subscribe [:user])
+        {:keys [saved]} @(rf/subscribe [:user])
         logged-in? @(rf/subscribe [:logged-in?])
         saved? (contains? saved id)
-        author? (= cook uid)
+        author? @(rf/subscribe [:author?])
         can-save? (and logged-in? (not author?) (not saved?))]
     [paper {:sx {:p 2}}
      [typography {:variant :h5} cook]
