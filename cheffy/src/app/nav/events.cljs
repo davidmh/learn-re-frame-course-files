@@ -14,6 +14,6 @@
     (assoc-in db [:nav :active-page] handler)))
 
 (reg-event-db
-  :set-active-nav
-  (fn [db [_ active-nav]]
-    (assoc-in db [:nav :active-nav] active-nav)))
+  :set-active-page
+  (fn [db [_ active-page]]
+    (assoc-in db [:nav :active-page] active-page)))

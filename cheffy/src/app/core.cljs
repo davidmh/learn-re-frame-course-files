@@ -31,20 +31,20 @@
     :profile [profile]
     :sign-up [sign-up]
     :log-in [log-in]
-    :chef [become-a-chef]
+    :become-a-chef [become-a-chef]
     :inbox [inboxes]
     :recipes [recipes]
     [recipes]))
 
 (defn app
   []
-  (let [active-nav @(rf/subscribe [:active-nav])]
+  (let [active-page @(rf/subscribe [:active-page])]
     [:> ThemeProvider {:theme (createTheme (clj->js theme))}
      [container
       [grid {:item true :xs 12}
        [nav]]
       [grid {:item true :xs 12}
-       [pages active-nav]]]]))
+       [pages active-page]]]]))
 
 (defn ^:dev/after-load start
   []

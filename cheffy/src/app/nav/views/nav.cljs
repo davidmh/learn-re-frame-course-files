@@ -13,7 +13,7 @@
                     {:id :inboxes
                      :name "Inbox"
                      :href :inboxes}
-                    {:id :chef
+                    {:id :become-a-chef
                      :name "Chef"
                      :href :become-a-chef}
                     {:id :profile
@@ -24,9 +24,9 @@
              {:id :recipes
               :name "Recipes"
               :href :recipes}
-             {:id :chef
+             {:id :become-a-chef
               :name "Chef"
-              :href :chef}
+              :href :become-a-chef}
              {:id :sign-up
               :name "Sign up"
               :href :sign-up}
@@ -38,11 +38,11 @@
   []
   (let [logged-in? @(rf/subscribe [:logged-in?])
         nav-items (if logged-in? authenticated public)
-        active-nav @(rf/subscribe [:active-nav])
+        active-page @(rf/subscribe [:active-page])
         selected-nav-index (or (find-index (fn [{:keys [id]}]
-                                          (= id active-nav)) nav-items)
+                                          (= id active-page)) nav-items)
                                0)
-        select-tab #(rf/dispatch [:set-active-nav %])]
+        select-tab #(rf/dispatch [:set-active-page %])]
 
     [box {:sx {:border-bottom 1
                :border-color "divider"

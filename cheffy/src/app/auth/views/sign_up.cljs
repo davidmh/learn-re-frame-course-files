@@ -2,6 +2,7 @@
   (:require
    [app.components.mui :refer [button container grid text-field]]
    [app.components.page-nav :refer [page-nav]]
+   [app.router :as router]
    [re-frame.core :as rf]
    [reagent.core :as r]))
 
@@ -52,7 +53,7 @@
                  :xs 12
                  :display "flex"
                  :justify-content "space-between"}
-           [:a {:href "#log-in"
-                :on-click #(rf/dispatch [:set-active-nav :log-in])}
+           [:a {:href (router/path-for :log-in)
+                :on-click #(rf/dispatch [:set-active-page :log-in])}
             "Already have an account? Log in!"]
            [button {:type "submit"} "Sign up"]]]]]])))

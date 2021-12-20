@@ -2,6 +2,7 @@
   (:require
    [app.components.mui :refer [button container grid text-field]]
    [app.components.page-nav :refer [page-nav]]
+   [app.router :as router]
    [re-frame.core :as rf]
    [reagent.core :as r]))
 
@@ -36,7 +37,7 @@
                  :xs 12
                  :display "flex"
                  :justify-content "space-between"}
-           [:a {:href "#sign-up"
-                :on-click #(rf/dispatch [:set-active-nav :sign-up])}
+           [:a {:href (router/path-for :sign-up)
+                :on-click #(rf/dispatch [:set-active-page :sign-up])}
             "New to Cheffy? Create an account!"]
            [button {:type "submit"} "Log in"]]]]]])))
