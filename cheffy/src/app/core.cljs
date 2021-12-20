@@ -21,6 +21,7 @@
             [app.inbox.views.inboxes :refer [inboxes]]
 
             [app.recipes.views.recipes-page :refer [recipes-page]]
+            [app.recipes.events]
             [app.recipes.subs]
 
             [app.recipes.views.recipe-page :refer [recipe-page]]
