@@ -23,6 +23,8 @@
             [app.recipes.views.recipes-page :refer [recipes-page]]
             [app.recipes.subs]
 
+            [app.recipes.views.recipe-page :refer [recipe-page]]
+
             [app.components.mui :refer [grid container]]
             [app.theme :refer [theme]]
             ["@mui/material/styles" :refer [ThemeProvider createTheme]]))
@@ -36,6 +38,7 @@
     :become-a-chef [become-a-chef]
     :inbox [inboxes]
     :recipes [recipes-page]
+    :recipe [recipe-page]
     [recipes-page]))
 
 (defn app
