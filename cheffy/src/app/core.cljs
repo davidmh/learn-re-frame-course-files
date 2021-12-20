@@ -19,7 +19,9 @@
 
             [app.become-a-chef.views.become-a-chef :refer [become-a-chef]]
             [app.inbox.views.inboxes :refer [inboxes]]
-            [app.recipes.views.recipes :refer [recipes]]
+
+            [app.recipes.views.recipes-page :refer [recipes-page]]
+            [app.recipes.subs]
 
             [app.components.mui :refer [grid container]]
             [app.theme :refer [theme]]
@@ -33,8 +35,8 @@
     :log-in [log-in]
     :become-a-chef [become-a-chef]
     :inbox [inboxes]
-    :recipes [recipes]
-    [recipes]))
+    :recipes [recipes-page]
+    [recipes-page]))
 
 (defn app
   []
