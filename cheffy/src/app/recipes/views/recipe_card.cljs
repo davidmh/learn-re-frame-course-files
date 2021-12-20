@@ -6,7 +6,7 @@
 
 (defn recipe-card [{:keys [id name saved-count prep-time img]}]
   [box {:as "a"
-        :href (router/path-for :recipes)
+        :href (router/path-for :recipe :recipe-id id)
         :class "recipe-card"}
    [box {:class "img-card"
          :min-height 280
