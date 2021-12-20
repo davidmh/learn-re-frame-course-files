@@ -1,8 +1,9 @@
 (ns app.recipes.views.recipes-page
   (:require
-    [app.components.page-nav :refer [page-nav]]
-    [app.components.mui :refer [typography]]
-    [re-frame.core :as rf]))
+   [app.components.mui :refer [typography]]
+   [app.components.page-nav :refer [page-nav]]
+   [app.recipes.views.recipe-list :refer [recipe-list]]
+   [re-frame.core :as rf]))
 
 (defn recipes-page
   []
@@ -12,8 +13,9 @@
   [:<>
    [page-nav {:center "Recipes"}]
    (when (seq drafts)
+     [:<>
       [typography {:variant :h4 :py 2 :font-weight 700} "Drafts"]
-      #_[recipe-list drafts])
+      [recipe-list drafts]])
    (when logged-in?
      [typography {:variant :h4 :py 2 :font-weight 700} "Public"])
-   #_[recipe-list public]]))
+   [recipe-list public]]))
