@@ -6,6 +6,7 @@
             ["@mui/material/Dialog" :default MuiDialog]
             ["@mui/material/DialogTitle" :default MuiDialogTitle]
             ["@mui/material/Grid" :default MuiGrid]
+            ["@mui/material/IconButton" :default MuiIconButton]
             ["@mui/material/Paper" :default MuiPaper]
             ["@mui/material/TextField" :default MuiTextField]
             ["@mui/material/Tab" :default MuiTab]
@@ -20,6 +21,7 @@
 (def dialog-title (r/adapt-react-class MuiDialogTitle))
 (def paper (r/adapt-react-class MuiPaper))
 (def grid (r/adapt-react-class MuiGrid))
+(def icon-button (r/adapt-react-class MuiIconButton))
 (def tab (r/adapt-react-class MuiTab))
 (def tabs (r/adapt-react-class MuiTabs))
 (def text-field (r/adapt-react-class MuiTextField))
