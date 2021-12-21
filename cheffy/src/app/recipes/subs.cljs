@@ -30,3 +30,11 @@
           active-recipe (get-in db [:nav :active-recipe])
           recipe (get-in db [:recipes active-recipe])]
       (= uid (:cook recipe)))))
+(reg-sub
+  :ingredients
+  (fn [db _]
+    (let [active-recipe (get-in db [:nav :active-recipe])
+          ingredients (get-in db [:recipes active-recipe :ingredients])]
+      (->> ingredients
+           (vals)
+           (sort-by :order)))))
