@@ -5,16 +5,17 @@
     [re-frame.core :as rf]
     [app.recipes.views.recipe-info :refer [recipe-info]]
     [app.recipes.views.recipe-image :refer [recipe-image]]
-    [app.recipes.views.recipe-ingredients :refer [recipe-ingredients]]))
+    [app.recipes.views.recipe-ingredients :refer [recipe-ingredients]]
+    [app.recipes.views.recipe-steps :refer [recipe-steps]]))
 
 (defn recipe-page []
   (let [{:keys [name]} @(rf/subscribe [:recipe])]
   [box {}
    [page-nav {:center name}]
-   [grid {:container true}
-    [grid {:item true :xs 12 :sm 6}
+   [grid {:container true :gap 2}
+    [grid {:item true :xs 12 :sm 5}
      [box {:pb 2} [recipe-info]]
      [box {:pb 2} [recipe-image]]
      [box {:pb 2} [recipe-ingredients]]]
-    [grid {:item true :xs 12 :sm 6}
-     [box {:pb 2} "recipe-steps"]]]]))
+    [grid {:item true :xs 12 :sm 5}
+     [box {:pb 2} [recipe-steps]]]]]))

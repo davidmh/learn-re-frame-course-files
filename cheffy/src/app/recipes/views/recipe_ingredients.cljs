@@ -33,8 +33,7 @@
                 :sx {:p 2}}
          [box {:align-items :center
                :gap 1
-               :display :flex
-               :py 2}
+               :display :flex}
           [typography {:variant :h5} "Ingredients"]
           [icon-button {:on-click #(open-modal {:modal-name :ingredient-editor
                                                 :ingredient initial-values})}
